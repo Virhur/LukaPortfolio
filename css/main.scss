@@ -220,6 +220,7 @@ header {
     img{
         height: 200px;
         width: 200px;
+        border-radius: 50%;
     }
    
     .profile{
@@ -237,6 +238,9 @@ header {
 
         @media (max-width: getBreakpoint("medium")) {
             width: 100%;
+            img{
+               padding: 20px;
+            }
         }
     }
     

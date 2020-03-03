@@ -302,6 +302,7 @@ img {
 .about img {
   height: 200px;
   width: 200px;
+  border-radius: 50%;
 }
 
 .about .profile {
@@ -332,6 +333,9 @@ img {
 @media (max-width: 768px) {
   .about .left {
     width: 100%;
+  }
+  .about .left img {
+    padding: 20px;
   }
 }
 
