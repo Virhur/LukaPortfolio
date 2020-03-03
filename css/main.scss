@@ -1,0 +1,471 @@
+@font-face{
+	font-family: 'Helvetica Neue Light';
+	src: url('HelveticaNeueLt.ttf');
+}
+
+$colorbg: rgb(240, 241, 243);
+$colorbg2: #303030;
+
+$breakpoints: (
+    "small" : 576px,
+    "medium" : 768px,
+    "large" : 992px,
+    "extra-large" : 1200px
+);
+
+@function getBreakpoint($breakpoint) {
+    @return map-get($breakpoints, $breakpoint);
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+
+@keyframes potamni {
+    from { filter: brightness(100%); }
+    to { filter: brightness(75%); }
+}
+
+@keyframes povecaj {
+    from { transform: scale(1.0); }
+    to { transform: scale(1.1); }
+}
+
+@keyframes promeniBorder {
+    from { border: 1px solid #ccc; }
+    to { border: 1px solid $colorbg2; }
+}
+
+.fade-in {
+    animation: fadein 3s;
+}
+
+*{
+	padding:0px;
+	margin:0px;
+	font-family: 'Helvetica Neue Light';
+}
+
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    background-color: $colorbg;
+}
+
+hr{
+    width:99vw;
+    margin: 0 auto;
+    
+}
+
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: white;
+
+}
+
+header {
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    background-color: $colorbg2;
+    z-index: 5;
+
+    .wrapper {
+        padding: 25px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        color:white;
+
+        #logo {
+            @media (max-width: getBreakpoint("large")) {
+                display: none;
+            }
+        }
+
+        a{
+            &:hover{
+                border-bottom: 2px solid $colorbg;
+                font-weight: bold;
+            }
+        }
+        nav{
+            .dropdown-dugme {
+                width: 100%;
+                margin-bottom: 10px;
+                display: flex;
+                justify-content: space-between;
+                @media (min-width: getBreakpoint("large")) {
+                    display: none;
+                }
+            }
+
+            ul{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                li {
+                    padding-left: 40px;
+                    font-size: 20px;
+                }
+            }
+ 
+            @media (max-width: getBreakpoint("large")) {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+
+                ul {
+                    display: none;
+                }
+
+                &:hover {
+                    width: 100%;
+    
+                    ul {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        li {
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#slider {
+    height:100vh;
+    background-image: url(../img/slider3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+
+    }
+
+
+    img {
+        width: 100%;
+    
+
+    }
+
+   .dugme {
+    width: 180px;
+    height: 60px;
+    border: 1px solid $colorbg;
+    background: 0 0;
+    border-radius: 2px;
+    color: $colorbg;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 40px;
+    transition: .4s ease-in-out;
+    &:hover {
+        background-color: $colorbg2;
+    }
+   }
+
+
+#sliderTekst {
+	text-align: center;
+    z-index: 4;
+
+}
+
+#sliderTekst h2{
+	color: $colorbg;
+	font-size: 50px;
+    margin-bottom:50px;
+    @media (max-width: getBreakpoint("medium")) {
+        font-size: 30px;
+    }
+}
+
+.about {
+    margin: 0px auto;
+    background-color: $colorbg ;
+    padding: 150px 0;
+
+    h2{
+        text-align: center;
+        padding: 30px;
+        font-size: 40px;
+        color: $colorbg2;
+    }
+    
+    img{
+        height: 200px;
+        width: 200px;
+    }
+   
+    .profile{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        width:100%;
+    }
+
+    .left{
+        width:50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media (max-width: getBreakpoint("medium")) {
+            width: 100%;
+        }
+    }
+    
+    .right{
+        width:50%;
+        text-align: justify;
+        color:$colorbg2;
+        font-size: 18px;
+
+        @media (max-width: getBreakpoint("medium")) {
+            width: 100%;
+        }
+    }
+
+}
+
+.skills{
+    margin: 0px auto;
+    background-color: $colorbg ;
+    padding: 150px 0;
+
+    h2{
+        text-align: center;
+        padding: 20px;
+        font-size: 40px;
+        color: $colorbg2;
+    }
+}
+
+
+.skills2{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .first{
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        border-radius: 5%;
+        background-color: rgb(232, 234, 238);
+        margin: 20px 0;
+        font-size: 18px;
+
+        h3{
+            padding: 10px;
+        }
+
+        &:hover {
+            animation: potamni 1s;
+            animation-fill-mode: forwards;
+        }
+
+        
+        @media (min-width: getBreakpoint("medium")) {
+            width: 49%;
+        }
+        @media (min-width: getBreakpoint("large")) {
+            width: 32%;
+        }
+        
+    }
+
+}
+
+.projects{
+    margin: 0px auto;
+    background-color: $colorbg ;
+    padding: 150px 0;
+
+    h2{
+        text-align: center;
+        padding: 20px;
+        font-size: 40px;
+        color: $colorbg2;
+    }
+
+}
+
+.projects2 {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    a{
+        width: 100%;
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        
+        &:hover {
+            animation: povecaj 1s;
+            animation-fill-mode: forwards;
+        }
+
+        @media (min-width: getBreakpoint("medium")) {
+            width: 49%;
+        }
+        @media (min-width: getBreakpoint("large")) {
+            width: 32%;
+        }
+
+        .slika {
+            width: 100%;
+            img {
+                width: 100%;
+            }
+        }
+    }
+    span{
+        text-align: center;
+        color: $colorbg2;
+        width: 100%;
+        font-size: 18px;
+    
+    }
+}
+
+.contact {
+    width: 80%;
+    margin: 0px auto;
+    background-color: $colorbg ;
+    padding: 50px;
+    h2{
+        text-align: center;
+        padding: 20px;
+        font-size: 40px;
+        color: $colorbg2;
+    }  
+
+    @media (min-width: getBreakpoint("medium")) {
+        width: 60%;
+    }
+    @media (min-width: getBreakpoint("large")) {
+        width: 40%;
+    }
+ 
+}
+    
+.form{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+   
+
+    button{
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+
+    .kolona {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        &:focus {
+            animation: promeniBorder 1s;
+            animation-fill-mode: forwards;
+        }
+    }
+       
+
+    form{
+        width:80%;
+        display:flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    button{
+        font-size: 40px;
+        padding: 15px;
+        
+
+    }
+}
+
+footer{
+    background-color: $colorbg2;
+    
+    .wrapper{
+        padding: 25px 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        color: $colorbg;
+        font-size: 18px;
+        ul{
+            list-style: none;
+        }
+        li{
+            display:inline;
+            margin: 20px;
+        }
+
+        @media (max-width: getBreakpoint("medium")) {
+
+            #links {
+                width: 100%;
+                text-align: center;
+            }
+
+            #copyright {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+}
+
+.wrapper {
+    width: 1200px;
+    @media (max-width: getBreakpoint("extra-large")){
+        width: 80%;
+    }
+    margin: 0 auto;
+}
