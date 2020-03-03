@@ -500,10 +500,22 @@ img {
 }
 
 .contact {
-  width: 80%;
-  margin: 0px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
   background-color: #f0f1f3;
-  padding: 50px;
+  padding: 50px 0;
 }
 
 .contact h2 {
@@ -511,18 +523,6 @@ img {
   padding: 20px;
   font-size: 40px;
   color: #303030;
-}
-
-@media (min-width: 768px) {
-  .contact {
-    width: 60%;
-  }
-}
-
-@media (min-width: 992px) {
-  .contact {
-    width: 40%;
-  }
 }
 
 .form {
@@ -536,6 +536,19 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 80%;
+}
+
+@media (min-width: 768px) {
+  .form {
+    width: 60%;
+  }
+}
+
+@media (min-width: 992px) {
+  .form {
+    width: 40%;
+  }
 }
 
 .form button {

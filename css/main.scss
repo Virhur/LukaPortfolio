@@ -368,10 +368,13 @@ header {
 }
 
 .contact {
-    width: 80%;
-    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:100%;
     background-color: $colorbg ;
-    padding: 50px;
+    padding: 50px 0;
     h2{
         text-align: center;
         padding: 20px;
@@ -379,12 +382,7 @@ header {
         color: $colorbg2;
     }  
 
-    @media (min-width: getBreakpoint("medium")) {
-        width: 60%;
-    }
-    @media (min-width: getBreakpoint("large")) {
-        width: 40%;
-    }
+
  
 }
     
@@ -392,6 +390,14 @@ header {
     display:flex;
     align-items: center;
     flex-direction: column;
+    width:80%;
+
+    @media (min-width: getBreakpoint("medium")) {
+        width: 60%;
+    }
+    @media (min-width: getBreakpoint("large")) {
+        width: 40%;
+    }
    
 
     button{
@@ -432,6 +438,7 @@ header {
 
 footer{
     background-color: $colorbg2;
+
     
     .wrapper{
         padding: 25px 0;
